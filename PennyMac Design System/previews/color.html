@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Pennymac · Color</title>
+<link rel="stylesheet" href="../tokens.css">
+<style>
+  body { padding: 40px; font-family: var(--pm-font-sans); }
+  .wrap { max-width: 1120px; margin: 0 auto; }
+  h1 { font-family: var(--pm-font-display); font-size: 40px; line-height: 48px; font-weight: 800; margin: 0 0 4px; letter-spacing: -0.015em; }
+  .sub { color: var(--pm-text-secondary); margin: 0 0 32px; font-size: 15px; }
+  h2 { font-family: var(--pm-font-display); font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--pm-text-tertiary); font-weight: 700; margin: 36px 0 12px; }
+
+  .hero {
+    margin: 0 0 32px; padding: 36px 40px;
+    background: linear-gradient(135deg, var(--pm-blue-700) 0%, var(--pm-blue-500) 100%);
+    border-radius: var(--pm-radius-lg);
+    color: var(--pm-white);
+    display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px; align-items: center;
+  }
+  .hero .eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; font-weight: 700; color: var(--pm-gold-400); margin-bottom: 10px; }
+  .hero .headline { font-family: var(--pm-font-display); font-size: 32px; line-height: 38px; font-weight: 800; letter-spacing: -0.015em; margin-bottom: 8px; }
+  .hero .desc { font-size: 15px; line-height: 22px; color: rgba(255,255,255,0.85); max-width: 440px; }
+  .hero .swatches-mini { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+  .hero .chip-mini {
+    width: 72px; height: 72px; border-radius: var(--pm-radius-md);
+    display: flex; align-items: flex-end; padding: 8px;
+    font-family: var(--pm-font-sans); font-size: 10px; font-weight: 700;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+  }
+
+  .row { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; }
+  .swatch {
+    border-radius: var(--pm-radius-md);
+    border: 1px solid var(--pm-border);
+    overflow: hidden;
+    background: var(--pm-surface);
+    display: flex; flex-direction: column;
+  }
+  .swatch .chip { height: 84px; }
+  .swatch .meta { padding: 10px 12px 12px; }
+  .swatch .name { font-size: 13px; font-weight: 600; color: var(--pm-text); }
+  .swatch .hex { font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 11px; color: var(--pm-text-tertiary); margin-top: 2px; text-transform: uppercase; }
+
+  .sem {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+  }
+  .sem .card {
+    border: 1px solid var(--pm-border); border-radius: var(--pm-radius-md);
+    padding: 16px; background: var(--pm-surface);
+  }
+  .sem .card .dot { width: 20px; height: 20px; border-radius: 6px; margin-bottom: 10px; }
+  .sem .card .label { font-size: 13px; font-weight: 700; font-family: var(--pm-font-display); }
+  .sem .card .example {
+    margin-top: 10px; padding: 8px 10px; border-radius: var(--pm-radius-sm);
+    font-size: 12px; font-weight: 500;
+  }
+
+  .usage {
+    margin-top: 28px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+  }
+  .usage .rule {
+    border: 1px solid var(--pm-border); border-radius: var(--pm-radius-md);
+    background: var(--pm-surface); padding: 16px;
+    font-size: 13px; line-height: 18px;
+  }
+  .usage .rule .k {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: var(--pm-font-display); font-size: 11px; text-transform: uppercase;
+    letter-spacing: 0.12em; font-weight: 700; margin-bottom: 6px;
+  }
+  .usage .rule .k.ok { color: var(--pm-success-700); }
+  .usage .rule .k.warn { color: var(--pm-warning-700); }
+  .usage .rule .k.no { color: var(--pm-error-700); }
+  .usage .rule .k::before {
+    content: ""; width: 10px; height: 10px; border-radius: 50%;
+  }
+  .usage .rule .k.ok::before { background: var(--pm-success-600); }
+  .usage .rule .k.warn::before { background: var(--pm-warning-600); }
+  .usage .rule .k.no::before { background: var(--pm-error-600); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Color</h1>
+  <p class="sub">A vibrant Pennymac blue leads the palette. Warm gold accents. Slate neutrals carry the UI.</p>
+
+  <div class="hero">
+    <div>
+      <div class="eyebrow">Primary brand</div>
+      <div class="headline">Pennymac Blue — confident, modern, trustworthy.</div>
+      <div class="desc">Saturated mid-blue for primary surfaces, CTAs, and brand moments. Replaces the old navy with something that actually feels current.</div>
+    </div>
+    <div class="swatches-mini">
+      <div class="chip-mini" style="background:#0B3FA8;color:#fff">900</div>
+      <div class="chip-mini" style="background:#155BE0;color:#fff">700</div>
+      <div class="chip-mini" style="background:#3B82F6;color:#fff">500</div>
+      <div class="chip-mini" style="background:#A3C3FB;color:#0B3FA8">300</div>
+    </div>
+  </div>
+
+  <h2>Brand · Blue</h2>
+  <div class="row">
+    <div class="swatch"><div class="chip" style="background:#0B3FA8"></div><div class="meta"><div class="name">blue-900</div><div class="hex">#0B3FA8</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#104CC4"></div><div class="meta"><div class="name">blue-800</div><div class="hex">#104CC4</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#155BE0"></div><div class="meta"><div class="name">blue-700<br><span style="font-weight:400;color:var(--pm-text-tertiary);font-size:11px">primary</span></div><div class="hex">#155BE0</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#1F6BF0"></div><div class="meta"><div class="name">blue-600</div><div class="hex">#1F6BF0</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#3B82F6"></div><div class="meta"><div class="name">blue-500</div><div class="hex">#3B82F6</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#DBE8FD"></div><div class="meta"><div class="name">blue-100</div><div class="hex">#DBE8FD</div></div></div>
+  </div>
+
+  <h2>Brand · Gold</h2>
+  <div class="row">
+    <div class="swatch"><div class="chip" style="background:#B3860E"></div><div class="meta"><div class="name">gold-700</div><div class="hex">#B3860E</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#D4A017"></div><div class="meta"><div class="name">gold-600</div><div class="hex">#D4A017</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#E3B02E"></div><div class="meta"><div class="name">gold-500</div><div class="hex">#E3B02E</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#F0C14B"></div><div class="meta"><div class="name">gold-400</div><div class="hex">#F0C14B</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#F8DFA0"></div><div class="meta"><div class="name">gold-200</div><div class="hex">#F8DFA0</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#FBF3DA"></div><div class="meta"><div class="name">gold-100</div><div class="hex">#FBF3DA</div></div></div>
+  </div>
+
+  <h2>Neutral · Slate</h2>
+  <div class="row">
+    <div class="swatch"><div class="chip" style="background:#0F1720"></div><div class="meta"><div class="name">slate-950</div><div class="hex">#0F1720</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#3A4656"></div><div class="meta"><div class="name">slate-700</div><div class="hex">#3A4656</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#6B7785"></div><div class="meta"><div class="name">slate-500</div><div class="hex">#6B7785</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#CBD2DB"></div><div class="meta"><div class="name">slate-300</div><div class="hex">#CBD2DB</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#EEF1F5"></div><div class="meta"><div class="name">slate-100</div><div class="hex">#EEF1F5</div></div></div>
+    <div class="swatch" style="border-color:#DFE4EB"><div class="chip" style="background:#F7F9FC"></div><div class="meta"><div class="name">slate-50</div><div class="hex">#F7F9FC</div></div></div>
+  </div>
+
+  <h2>Semantic</h2>
+  <div class="sem">
+    <div class="card">
+      <div class="dot" style="background:#1F7A3C"></div>
+      <div class="label">Success</div>
+      <div class="example" style="background:#E1F3E7;color:#155F2D">Payment received</div>
+    </div>
+    <div class="card">
+      <div class="dot" style="background:#B8791E"></div>
+      <div class="label">Warning</div>
+      <div class="example" style="background:#FBF0DB;color:#8A5A14">Rate lock expires Friday</div>
+    </div>
+    <div class="card">
+      <div class="dot" style="background:#B3261E"></div>
+      <div class="label">Error</div>
+      <div class="example" style="background:#FBE3E1;color:#8C1D16">Document upload failed</div>
+    </div>
+    <div class="card">
+      <div class="dot" style="background:#155BE0"></div>
+      <div class="label">Info</div>
+      <div class="example" style="background:#DBE8FD;color:#104CC4">Appraisal scheduled</div>
+    </div>
+  </div>
+
+  <h2>Usage rules</h2>
+  <div class="usage">
+    <div class="rule"><div class="k ok">Do</div>Use blue-700 for primary CTAs and key brand surfaces. Deeper blue-900 for high-contrast dark headers.</div>
+    <div class="rule"><div class="k warn">Accent</div>Gold is accent-only: highlights, small graphic marks, and the logo triangle. Never a button background.</div>
+    <div class="rule"><div class="k no">Don't</div>Pair semantic color without an icon or label — color alone fails accessibility for 1 in 12 users.</div>
+  </div>
+</div>
+</body>
+</html>

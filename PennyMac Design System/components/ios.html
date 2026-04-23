@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Pennymac · iOS components</title>
+<link rel="stylesheet" href="../tokens.css">
+<style>
+  body { margin: 0; padding: 48px; background: var(--pm-slate-100); font-family: var(--pm-font-sans); }
+  .page { max-width: 1520px; margin: 0 auto; }
+  h1 { font-family: var(--pm-font-display); font-size: 40px; line-height: 48px; font-weight: 800; letter-spacing: -0.015em; margin: 0 0 4px; }
+  .sub { color: var(--pm-text-secondary); margin: 0 0 40px; font-size: 15px; }
+  .shelf { display: grid; grid-template-columns: repeat(3, auto); gap: 32px; justify-content: start; align-items: start; }
+  .stack { display: flex; flex-direction: column; gap: 40px; }
+  .row { display: grid; grid-template-columns: repeat(2, auto); gap: 32px; justify-content: start; align-items: start; }
+  .caption {
+    font-family: var(--pm-font-display);
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em;
+    color: var(--pm-text-tertiary); font-weight: 700; margin-bottom: 12px;
+  }
+</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="../ios-frame.jsx"></script>
+<script type="text/babel" src="./ios-components.jsx"></script>
+</head>
+<body>
+<div class="page">
+  <h1>iOS components</h1>
+  <p class="sub">Native iOS frame with the Pennymac palette, Montserrat headings, and Roboto body. Shown inside a working status bar / large title / home indicator.</p>
+  <div id="root"></div>
+</div>
+<script type="text/babel">
+  const { IOSDevice } = window;
+
+  // Screen 1 — Loan home
+  function LoanHome() {
+    return (
+      <div style={{ padding: '20px 16px 40px', display: 'flex', flexDirection: 'column', gap: 16, background: PM.slate50 }}>
+        <PMIOSPaymentCard />
+        <div style={{ background: PM.white, borderRadius: 20, overflow: 'hidden', boxShadow: '0 1px 2px rgba(15,23,32,0.06)' }}>
+          <div style={{ padding: '16px 16px 8px', fontFamily: FONT.display, fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: PM.slate500 }}>Loan overview</div>
+          <PMIOSListRow title="Current balance" detail="Loan #2048 · 30-yr fixed" badge={<span style={{ fontFamily: FONT.body, fontWeight: 600, color: PM.slate950, fontVariantNumeric: 'tabular-nums' }}>$318,402</span>} />
+          <PMIOSListRow title="Rate lock" detail="Expires May 3" badge={<PMIOSBadge label="7 days" tone="warning" />} />
+          <PMIOSListRow title="Documents" detail="2 need attention" badge={<PMIOSBadge label="Action" tone="error" />} isLast />
+        </div>
+        <PMIOSAlert tone="info" title="Your appraisal is scheduled" body="Thursday, April 25 · 10am–12pm at 142 Oak Lane." />
+      </div>
+    );
+  }
+
+  // Screen 2 — Application form
+  function ApplyForm() {
+    return (
+      <div style={{ padding: '16px 16px 40px', display: 'flex', flexDirection: 'column', gap: 18, background: PM.slate50 }}>
+        <PMIOSField label="Legal first name" value="Jordan" hint="As it appears on your government ID." />
+        <PMIOSField label="Annual household income" value="142,000" prefix="$" focused />
+        <PMIOSField label="Property ZIP code" value="0012" error="Enter a valid 5-digit ZIP code." />
+        <div style={{ background: PM.white, borderRadius: 20, padding: '4px 16px', boxShadow: '0 1px 2px rgba(15,23,32,0.06)' }}>
+          <div style={{ fontFamily: FONT.display, fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: PM.slate500, padding: '12px 0 4px' }}>Property use</div>
+          <div style={{ borderTop: `0.5px solid ${PM.slate200}` }}>
+            <PMIOSRadio checked label="Primary residence" meta="You'll live in this home most of the year." />
+          </div>
+          <div style={{ borderTop: `0.5px solid ${PM.slate200}` }}>
+            <PMIOSRadio label="Second home" meta="Vacation or occasional use." />
+          </div>
+          <div style={{ borderTop: `0.5px solid ${PM.slate200}` }}>
+            <PMIOSRadio label="Investment property" meta="Rented out or held as an investment." />
+          </div>
+        </div>
+        <PMIOSButton label="Continue" full size="lg" />
+      </div>
+    );
+  }
+
+  // Screen 3 — Rate shopping
+  function RateShopping() {
+    return (
+      <div style={{ padding: '20px 16px 40px', display: 'flex', flexDirection: 'column', gap: 16, background: PM.slate50 }}>
+        <PMIOSRateCard />
+        <div style={{ background: PM.white, borderRadius: 20, overflow: 'hidden', boxShadow: '0 1px 2px rgba(15,23,32,0.06)' }}>
+          <PMIOSListRow title="15-year fixed" detail="5.625% APR · $2,311/mo" badge={<PMIOSBadge label="Lowest rate" tone="success" />} />
+          <PMIOSListRow title="7/6 ARM" detail="5.875% APR · $1,678/mo" badge={<PMIOSBadge label="Adjustable" tone="neutral" />} />
+          <PMIOSListRow title="FHA 30-year" detail="6.250% APR · $1,874/mo" isLast />
+        </div>
+        <div style={{ background: PM.white, borderRadius: 20, padding: 16, boxShadow: '0 1px 2px rgba(15,23,32,0.06)' }}>
+          <div style={{ fontFamily: FONT.display, fontSize: 15, fontWeight: 700, color: PM.slate950, marginBottom: 4 }}>Notifications</div>
+          <div style={{ fontSize: 13, color: PM.slate500, marginBottom: 12 }}>Only ping me about the stuff that matters.</div>
+          {[['Rate drop alerts', true], ['Weekly market update', false]].map(([label, on]) => (
+            <div key={label} style={{ display: 'flex', alignItems: 'center', padding: '10px 0', borderTop: `0.5px solid ${PM.slate200}` }}>
+              <div style={{ flex: 1, fontSize: 15, color: PM.slate950, fontFamily: FONT.body }}>{label}</div>
+              <PMIOSToggle on={on} />
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  function App() {
+    return (
+      <div className="stack">
+        <div className="shelf">
+          <div>
+            <div className="caption">Loan home</div>
+            <IOSDevice title="My loan" width={380} height={780}>
+              <LoanHome />
+            </IOSDevice>
+          </div>
+          <div>
+            <div className="caption">Application</div>
+            <IOSDevice title="Apply" width={380} height={780}>
+              <ApplyForm />
+            </IOSDevice>
+          </div>
+          <div>
+            <div className="caption">Rate shopping</div>
+            <IOSDevice title="Rates" width={380} height={780}>
+              <RateShopping />
+            </IOSDevice>
+          </div>
+        </div>
+
+        <div>
+          <div className="caption">Components in isolation</div>
+          <div style={{ background: PM.white, borderRadius: 20, padding: 32, display: 'flex', flexWrap: 'wrap', gap: 20, boxShadow: '0 1px 2px rgba(15,23,32,0.06)' }}>
+            <PMIOSButton label="Continue" />
+            <PMIOSButton label="Save for later" variant="secondary" />
+            <PMIOSButton label="View details" variant="tertiary" />
+            <PMIOSButton label="Withdraw application" variant="destructive" />
+            <PMIOSButton label="Small" size="sm" />
+            <PMIOSButton label="Large" size="lg" />
+            <PMIOSBadge label="In review" tone="info" />
+            <PMIOSBadge label="Action needed" tone="warning" />
+            <PMIOSBadge label="Approved" tone="success" />
+            <PMIOSBadge label="Expired" tone="error" />
+            <PMIOSBadge label="Draft" tone="neutral" />
+            <PMIOSToggle on />
+            <PMIOSToggle on={false} />
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
