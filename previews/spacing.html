@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Pennymac · Spacing, Radius, Elevation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+  body { padding: 40px; }
+  .wrap { max-width: 1040px; margin: 0 auto; }
+  h1 { font-size: 32px; line-height: 40px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .sub { color: var(--pm-text-secondary); margin: 0 0 32px; font-size: 15px; }
+  h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--pm-text-tertiary); font-weight: 600; margin: 40px 0 16px; }
+
+  /* spacing */
+  .space-scale { display: flex; flex-direction: column; gap: 10px; }
+  .space-row { display: grid; grid-template-columns: 80px 1fr 80px; align-items: center; gap: 16px; }
+  .space-row .t { font-family: var(--pm-font-mono); font-size: 12px; color: var(--pm-text-tertiary); text-transform: uppercase; }
+  .space-row .bar { height: 16px; background: var(--pm-blue-100); border-radius: 2px; }
+  .space-row .px { font-family: var(--pm-font-mono); font-size: 12px; color: var(--pm-text-tertiary); text-align: right; }
+
+  /* radius */
+  .radius-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+  .rad-card {
+    background: var(--pm-surface); border: 1px solid var(--pm-border);
+    padding: 20px; text-align: center;
+  }
+  .rad-box { width: 64px; height: 64px; background: var(--pm-blue-900); margin: 0 auto 12px; }
+  .rad-card .name { font-size: 13px; font-weight: 600; }
+  .rad-card .val { font-family: var(--pm-font-mono); font-size: 11px; color: var(--pm-text-tertiary); margin-top: 2px; }
+
+  /* elevation */
+  .elev-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding: 24px; background: var(--pm-slate-100); border-radius: var(--pm-radius-md); }
+  .elev-card {
+    background: var(--pm-white); border-radius: var(--pm-radius-md);
+    padding: 24px; text-align: center;
+  }
+  .e1 { box-shadow: var(--pm-shadow-1); }
+  .e2 { box-shadow: var(--pm-shadow-2); }
+  .e3 { box-shadow: var(--pm-shadow-3); }
+  .elev-card .name { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+  .elev-card .usage { font-size: 12px; color: var(--pm-text-tertiary); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Spacing, radius &amp; elevation</h1>
+  <p class="sub">8-point grid. Conservative shadows. Pills reserved for status.</p>
+
+  <h2>Spacing scale</h2>
+  <div class="space-scale">
+    <div class="space-row"><div class="t">space-1</div><div class="bar" style="width:4px"></div><div class="px">4px</div></div>
+    <div class="space-row"><div class="t">space-2</div><div class="bar" style="width:8px"></div><div class="px">8px</div></div>
+    <div class="space-row"><div class="t">space-3</div><div class="bar" style="width:12px"></div><div class="px">12px</div></div>
+    <div class="space-row"><div class="t">space-4</div><div class="bar" style="width:16px"></div><div class="px">16px</div></div>
+    <div class="space-row"><div class="t">space-5</div><div class="bar" style="width:20px"></div><div class="px">20px</div></div>
+    <div class="space-row"><div class="t">space-6</div><div class="bar" style="width:24px"></div><div class="px">24px</div></div>
+    <div class="space-row"><div class="t">space-8</div><div class="bar" style="width:32px"></div><div class="px">32px</div></div>
+    <div class="space-row"><div class="t">space-10</div><div class="bar" style="width:40px"></div><div class="px">40px</div></div>
+    <div class="space-row"><div class="t">space-12</div><div class="bar" style="width:48px"></div><div class="px">48px</div></div>
+    <div class="space-row"><div class="t">space-16</div><div class="bar" style="width:64px"></div><div class="px">64px</div></div>
+    <div class="space-row"><div class="t">space-20</div><div class="bar" style="width:80px"></div><div class="px">80px</div></div>
+  </div>
+
+  <h2>Radius</h2>
+  <div class="radius-row">
+    <div class="rad-card"><div class="rad-box" style="border-radius:4px"></div><div class="name">sm</div><div class="val">4px · inputs</div></div>
+    <div class="rad-card"><div class="rad-box" style="border-radius:8px"></div><div class="name">md</div><div class="val">8px · buttons / cards</div></div>
+    <div class="rad-card"><div class="rad-box" style="border-radius:12px"></div><div class="name">lg</div><div class="val">12px · modals</div></div>
+    <div class="rad-card"><div class="rad-box" style="border-radius:16px"></div><div class="name">xl</div><div class="val">16px · sheets</div></div>
+    <div class="rad-card"><div class="rad-box" style="border-radius:9999px"></div><div class="name">pill</div><div class="val">∞ · badges</div></div>
+  </div>
+
+  <h2>Elevation</h2>
+  <div class="elev-row">
+    <div class="elev-card e1"><div class="name">shadow-1</div><div class="usage">Card at rest</div></div>
+    <div class="elev-card e2"><div class="name">shadow-2</div><div class="usage">Menu, popover</div></div>
+    <div class="elev-card e3"><div class="name">shadow-3</div><div class="usage">Modal, sheet</div></div>
+  </div>
+</div>
+</body>
+</html>

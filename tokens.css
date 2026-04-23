@@ -1,0 +1,209 @@
+/* =====================================================================
+   Pennymac Design System — Tokens
+   Single source of truth. Import in every preview/component HTML.
+   ===================================================================== */
+
+/* ---------- Brand fonts: Montserrat (display) + Roboto (body) ---------- */
+@font-face { font-family: 'Roboto'; font-weight: 100; font-style: normal; font-display: swap;
+  src: url('fonts/Roboto-Thin.ttf') format('truetype'); }
+@font-face { font-family: 'Roboto'; font-weight: 100; font-style: italic; font-display: swap;
+  src: url('fonts/Roboto-ThinItalic.ttf') format('truetype'); }
+@font-face { font-family: 'Roboto'; font-weight: 300; font-style: normal; font-display: swap;
+  src: url('fonts/Roboto-Light.ttf') format('truetype'); }
+@font-face { font-family: 'Roboto'; font-weight: 300; font-style: italic; font-display: swap;
+  src: url('fonts/Roboto-LightItalic.ttf') format('truetype'); }
+@font-face { font-family: 'Roboto'; font-weight: 400; font-style: normal; font-display: swap;
+  src: url('fonts/Roboto-Regular.ttf') format('truetype'); }
+@font-face { font-family: 'Roboto'; font-weight: 400; font-style: italic; font-display: swap;
+  src: url('fonts/Roboto-Italic.ttf') format('truetype'); }
+@font-face { font-family: 'Roboto'; font-weight: 500; font-style: normal; font-display: swap;
+  src: url('fonts/Roboto-Medium.ttf') format('truetype'); }
+@font-face { font-family: 'Roboto'; font-weight: 500; font-style: italic; font-display: swap;
+  src: url('fonts/Roboto-MediumItalic.ttf') format('truetype'); }
+@font-face { font-family: 'Roboto'; font-weight: 700; font-style: normal; font-display: swap;
+  src: url('fonts/Roboto-Bold.ttf') format('truetype'); }
+@font-face { font-family: 'Roboto'; font-weight: 700; font-style: italic; font-display: swap;
+  src: url('fonts/Roboto-BoldItalic.ttf') format('truetype'); }
+@font-face { font-family: 'Roboto'; font-weight: 900; font-style: normal; font-display: swap;
+  src: url('fonts/Roboto-Black.ttf') format('truetype'); }
+@font-face { font-family: 'Roboto'; font-weight: 900; font-style: italic; font-display: swap;
+  src: url('fonts/Roboto-BlackItalic.ttf') format('truetype'); }
+
+@font-face { font-family: 'Roboto Condensed'; font-weight: 300; font-style: normal; font-display: swap;
+  src: url('fonts/RobotoCondensed-Light.ttf') format('truetype'); }
+@font-face { font-family: 'Roboto Condensed'; font-weight: 300; font-style: italic; font-display: swap;
+  src: url('fonts/RobotoCondensed-LightItalic.ttf') format('truetype'); }
+@font-face { font-family: 'Roboto Condensed'; font-weight: 400; font-style: normal; font-display: swap;
+  src: url('fonts/RobotoCondensed-Regular.ttf') format('truetype'); }
+@font-face { font-family: 'Roboto Condensed'; font-weight: 400; font-style: italic; font-display: swap;
+  src: url('fonts/RobotoCondensed-Italic.ttf') format('truetype'); }
+@font-face { font-family: 'Roboto Condensed'; font-weight: 700; font-style: normal; font-display: swap;
+  src: url('fonts/RobotoCondensed-Bold.ttf') format('truetype'); }
+@font-face { font-family: 'Roboto Condensed'; font-weight: 700; font-style: italic; font-display: swap;
+  src: url('fonts/RobotoCondensed-BoldItalic.ttf') format('truetype'); }
+
+/* Montserrat \u2014 display + brand headlines */
+@font-face { font-family: 'Montserrat'; font-weight: 100; font-style: normal; font-display: swap;
+  src: url('fonts/Montserrat-Hairline.otf') format('opentype'); }
+@font-face { font-family: 'Montserrat'; font-weight: 200; font-style: normal; font-display: swap;
+  src: url('fonts/Montserrat-UltraLight.otf') format('opentype'); }
+@font-face { font-family: 'Montserrat'; font-weight: 300; font-style: normal; font-display: swap;
+  src: url('fonts/Montserrat-Light.otf') format('opentype'); }
+@font-face { font-family: 'Montserrat'; font-weight: 400; font-style: normal; font-display: swap;
+  src: url('fonts/Montserrat-Regular.otf') format('opentype'); }
+@font-face { font-family: 'Montserrat'; font-weight: 600; font-style: normal; font-display: swap;
+  src: url('fonts/Montserrat-SemiBold.otf') format('opentype'); }
+@font-face { font-family: 'Montserrat'; font-weight: 700; font-style: normal; font-display: swap;
+  src: url('fonts/Montserrat-Bold.otf') format('opentype'); }
+@font-face { font-family: 'Montserrat'; font-weight: 800; font-style: normal; font-display: swap;
+  src: url('fonts/Montserrat-ExtraBold.otf') format('opentype'); }
+@font-face { font-family: 'Montserrat'; font-weight: 900; font-style: normal; font-display: swap;
+  src: url('fonts/Montserrat-Black.otf') format('opentype'); }
+
+:root {
+  /* ---------- Color: Brand ---------- */
+  /* Vibrant, confident blue — saturated mid-blue ramp, not navy */
+  --pm-blue-900: #0B3FA8;
+  --pm-blue-800: #104CC4;
+  --pm-blue-700: #155BE0;
+  --pm-blue-600: #1F6BF0;
+  --pm-blue-500: #3B82F6;
+  --pm-blue-400: #6FA3FA;
+  --pm-blue-300: #A3C3FB;
+  --pm-blue-100: #DBE8FD;
+  --pm-blue-50:  #EDF3FE;
+
+  --pm-gold-700: #B3860E;
+  --pm-gold-600: #D4A017;
+  --pm-gold-500: #E3B02E;
+  --pm-gold-400: #F0C14B;
+  --pm-gold-200: #F8DFA0;
+  --pm-gold-100: #FBF3DA;
+
+  /* ---------- Color: Neutrals ---------- */
+  --pm-slate-950: #0F1720;
+  --pm-slate-900: #1A2230;
+  --pm-slate-800: #232D3C;
+  --pm-slate-700: #3A4656;
+  --pm-slate-600: #51606F;
+  --pm-slate-500: #6B7785;
+  --pm-slate-400: #8E98A5;
+  --pm-slate-300: #CBD2DB;
+  --pm-slate-200: #DFE4EB;
+  --pm-slate-100: #EEF1F5;
+  --pm-slate-50:  #F7F9FC;
+  --pm-white:     #FFFFFF;
+
+  /* ---------- Color: Semantic ---------- */
+  --pm-success-700: #155F2D;
+  --pm-success-600: #1F7A3C;
+  --pm-success-500: #2A9250;
+  --pm-success-100: #E1F3E7;
+
+  --pm-warning-700: #8A5A14;
+  --pm-warning-600: #B8791E;
+  --pm-warning-500: #D9922B;
+  --pm-warning-100: #FBF0DB;
+
+  --pm-error-700: #8C1D16;
+  --pm-error-600: #B3261E;
+  --pm-error-500: #D13A31;
+  --pm-error-100: #FBE3E1;
+
+  --pm-info-700: #104CC4;
+  --pm-info-600: #155BE0;
+  --pm-info-500: #3B82F6;
+  --pm-info-100: #DBE8FD;
+
+  /* ---------- Color: Roles (prefer these in components) ---------- */
+  --pm-bg:             var(--pm-slate-50);
+  --pm-surface:        var(--pm-white);
+  --pm-surface-alt:    var(--pm-slate-100);
+  --pm-border:         var(--pm-slate-300);
+  --pm-border-strong:  var(--pm-slate-400);
+  --pm-text:           var(--pm-slate-950);
+  --pm-text-secondary: var(--pm-slate-700);
+  --pm-text-tertiary:  var(--pm-slate-500);
+  --pm-text-on-dark:   var(--pm-white);
+  --pm-primary:        var(--pm-blue-700);
+  --pm-primary-hover:  var(--pm-blue-800);
+  --pm-primary-tint:   var(--pm-blue-100);
+  --pm-accent:         var(--pm-gold-600);
+  --pm-accent-hover:   var(--pm-gold-700);
+  --pm-focus-ring:     var(--pm-blue-500);
+
+  /* ---------- Type ---------- */
+  --pm-font-sans: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --pm-font-display: 'Montserrat', 'Roboto', -apple-system, BlinkMacSystemFont, 'SF Pro Display', Helvetica, Arial, sans-serif;
+  --pm-font-condensed: 'Roboto Condensed', 'Roboto', -apple-system, sans-serif;
+  --pm-font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* Scale: size / line-height */
+  --pm-fs-display: 48px;  --pm-lh-display: 56px;
+  --pm-fs-h1:      32px;  --pm-lh-h1:      40px;
+  --pm-fs-h2:      24px;  --pm-lh-h2:      32px;
+  --pm-fs-h3:      20px;  --pm-lh-h3:      28px;
+  --pm-fs-h4:      17px;  --pm-lh-h4:      24px;
+  --pm-fs-body-lg: 17px;  --pm-lh-body-lg: 26px;
+  --pm-fs-body:    15px;  --pm-lh-body:    22px;
+  --pm-fs-body-sm: 13px;  --pm-lh-body-sm: 18px;
+  --pm-fs-caption: 12px;  --pm-lh-caption: 16px;
+
+  --pm-fw-regular: 400;
+  --pm-fw-medium:  500;
+  --pm-fw-semibold: 600;
+  --pm-fw-bold:    700;
+
+  /* ---------- Spacing (8-pt with half-steps) ---------- */
+  --pm-space-1:  4px;
+  --pm-space-2:  8px;
+  --pm-space-3:  12px;
+  --pm-space-4:  16px;
+  --pm-space-5:  20px;
+  --pm-space-6:  24px;
+  --pm-space-8:  32px;
+  --pm-space-10: 40px;
+  --pm-space-12: 48px;
+  --pm-space-16: 64px;
+  --pm-space-20: 80px;
+
+  /* ---------- Radius ---------- */
+  --pm-radius-sm: 4px;
+  --pm-radius-md: 8px;
+  --pm-radius-lg: 12px;
+  --pm-radius-xl: 16px;
+  --pm-radius-pill: 9999px;
+
+  /* ---------- Elevation ---------- */
+  --pm-shadow-1: 0 1px 2px rgba(15, 23, 32, 0.06), 0 1px 1px rgba(15, 23, 32, 0.04);
+  --pm-shadow-2: 0 4px 12px rgba(15, 23, 32, 0.08), 0 1px 3px rgba(15, 23, 32, 0.04);
+  --pm-shadow-3: 0 12px 32px rgba(15, 23, 32, 0.14), 0 2px 6px rgba(15, 23, 32, 0.06);
+
+  /* ---------- Motion ---------- */
+  --pm-dur-fast:   150ms;
+  --pm-dur-base:   220ms;
+  --pm-dur-slow:   320ms;
+  --pm-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --pm-ease-in:       cubic-bezier(0.4, 0, 1, 1);
+  --pm-ease-out:      cubic-bezier(0, 0, 0.2, 1);
+}
+
+/* ---------- Base reset for previews ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  font-family: var(--pm-font-sans);
+  font-size: var(--pm-fs-body);
+  line-height: var(--pm-lh-body);
+  color: var(--pm-text);
+  background: var(--pm-bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Tabular nums for any numeric content */
+.pm-num, .pm-money, .pm-rate {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
